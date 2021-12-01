@@ -1,0 +1,21 @@
+package intellect.naveenkumar;
+
+public class MultipleOF3and5 {
+
+	public static int Sum(int n) {
+		int total = 0;
+		for (int i = 3; i < n; i++) {
+			if (i % 3 == 0 || i % 5 == 0)
+			{
+				total = total+i;
+			}
+		}
+		return total;
+	}
+	public static void main(String[] args) {
+		System.out.println("Multiple Of 3 and 5:");
+		System.out.println(Sum(1000));
+	}
+
+}
+

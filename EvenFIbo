@@ -1,0 +1,31 @@
+package intellect.naveenkumar;
+
+public class EvenFibo {
+	static int EvenFibo(int lim)
+    {
+    
+        int a = 0, b = 2;
+        int sum = a + b;
+     
+        while (b <= lim)
+        {
+            int c = 4 * b + a;
+     
+            if (c > lim)
+                break;
+     
+            a = b;
+            b = c;
+            sum = b+ sum;
+        }
+     
+        return sum;
+    }
+    public static void main (String[] args)
+    {
+
+        System.out.println(EvenFibo(4000000));
+         
+    }
+}
+

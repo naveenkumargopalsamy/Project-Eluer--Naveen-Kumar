@@ -1,0 +1,56 @@
+package intellect.naveenkumar;
+import java.util.Scanner;
+//************************************************************
+//Author : Naveen Kumar Gopalsamy
+//Date: 01 Dec 2021
+//Constraints->
+//1.Date Should Be Equal To The Last Digits Of The Bill Number
+//2.Bill Number Should BE Multiple Of Date
+//*************************************************************
+public class LuckyDraw {
+
+	static boolean checkbillnumber(int purchasedate,int billnumber)
+	{
+
+		if(purchasedate<=31 && purchasedate>=1) //date validation(Date Range 1 to 31)
+		{
+
+			int datelength = String.valueOf(purchasedate).length(); // Date May be 1 or 2 Digit(ie 7,10)
+
+			if(datelength==1) // Change Position to Split Number
+				datelength++;	
+			else if(datelength==2)
+				datelength--;
+
+			String billnum=String.valueOf(billnumber); //Convert Int to String to Perform SubString Operation
+			String billdate=String.valueOf(purchasedate);
+			if(billdate.equals(billnum.substring(datelength,3))) //Check BillDate with Spilt Bill Number
+				return true;
+		}
+		return false;	
+	}
+	static boolean checkmultiply(int purchasedate,int billnumber)
+	{
+		if(billnumber%purchasedate==0) //Check Multiply of Date
+			return true;	
+		
+		return false;
+
+	}
+	public static void main(String[] args) {
+
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter Purchased Date:");
+		int purchasedate = sc.nextInt();
+		System.out.print("Enter Bill Number:");
+		int billnumber = sc.nextInt();
+		if(checkbillnumber(purchasedate,billnumber)==true && checkmultiply(purchasedate,billnumber)==true)
+			System.out.println("Congrats, Lucky Draw !!!!!!");
+		else
+			System.out.println("Sorry, Not A Lucky Draw !!!!!!");
+
+	}
+
+}
+
+
